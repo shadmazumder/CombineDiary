@@ -42,8 +42,16 @@ Swift Combine run daily entry
 - is used for chaining.
   - processing, reacting, and transforming the data provided by a publisher, and requested by the subscriber
 
+### 24 Nov
+- How to read Marble Diagrams on a functional reactive pipeline
+- Marble diagrams on Combine
+- Back pressure
+  - Subscriber controlling the data flow is called Back pressure in Combine.
+  - What and When data flows in the pipeline is controlled by the Subscriber
+
 ### Clarifying terms
 Pipeline: Basically the chaining of operators
 
 ### Unknown terms
 - Steams of elements in `functional reactive programming`
+- `sink`
