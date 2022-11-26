@@ -45,9 +45,15 @@ Swift Combine run daily entry
 ### 24 Nov
 - How to read Marble Diagrams on a functional reactive pipeline
 - Marble diagrams on Combine
-- Back pressure
+- [Back pressure](https://heckj.github.io/swiftui-notes/#coreconcepts-backpressure)
   - Subscriber controlling the data flow is called Back pressure in Combine.
   - What and When data flows in the pipeline is controlled by the Subscriber
+
+### 26 Nov
+- [Demand](https://developer.apple.com/documentation/combine/subscribers/demand)
+  - The number of items an subscripber asked for to a publisher.
+- Subscriber canceles and stop all related processing of a pipeline through `cancel()`, defined in the `Cancellable` protocol.
+- An canceled pipeline ment not to be restart rather it is expected to create a new pipeline.
 
 ### Clarifying terms
 Pipeline: Basically the chaining of operators
