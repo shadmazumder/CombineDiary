@@ -55,6 +55,20 @@ Swift Combine run daily entry
 - Subscriber canceles and stop all related processing of a pipeline through `cancel()`, defined in the `Cancellable` protocol.
 - An canceled pipeline ment not to be restart rather it is expected to create a new pipeline.
 
+### 28 Nov
+- [Life cycle of publisher and subscriber](https://heckj.github.io/swiftui-notes/#coreconcepts-lifecycle)
+
+<img width="835" alt="Screenshot 2022-11-28 at 11 15 41" src="https://user-images.githubusercontent.com/1079470/204199298-fb93fe49-9819-47e4-9563-6d4ef568b621.png">
+
+1. subscriber calls for `subscribe(_: subscriber)`
+2. publisher response with `receive(subscription: Subscription)`
+3. Then subscriber request for N values through `request(_: Demand)`
+4. Then the data flow begains. publisher might return <=N if has data through `receive(_: Input)`. 
+5. Any time subscriber calling `cancle()` will terminate the pipeline
+6. If a `cancle()` is not called then the publisher optionally might send a completion block, `receive(completion:)`, containing a `.failure` if appropriate.
+
+From the above we can see the where the marble diagram sits, in between setup and termination/cancle. The marble diagram does not consider the setup or the termination, it is only focusing on the data flow. So the marble diagram only presents the series of events in between data request and pipeline termination.
+
 ### Clarifying terms
 Pipeline: Basically the chaining of [operators](#operators)
 
