@@ -56,7 +56,7 @@ Swift Combine run daily entry
 - An canceled pipeline ment not to be restart rather it is expected to create a new pipeline.
 
 ### Clarifying terms
-Pipeline: Basically the chaining of operators
+Pipeline: Basically the chaining of [operators](#operators)
 
 ### Unknown terms
 - Steams of elements in `functional reactive programming`
