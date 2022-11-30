@@ -69,6 +69,12 @@ Swift Combine run daily entry
 
 From the above we can see the where the marble diagram sits, in between setup and termination/cancle. The marble diagram does not consider the setup or the termination, it is only focusing on the data flow. So the marble diagram only presents the series of events in between data request and pipeline termination.
 
+### 30 Nov
+#### Publisher Details
+The `Publisher` protocol has strict requirements on
+- return type, `Output`
+- explicite completion enum, `Failure`
+
 ### Clarifying terms
 Pipeline: Basically the chaining of [operators](#operators)
 
