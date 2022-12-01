@@ -75,6 +75,24 @@ The `Publisher` protocol has strict requirements on
 - return type, `Output`
 - explicite completion enum, `Failure`
 
+Publisher might return data immediately when requested by a subscriber. In some case the publisher confirms the `ConnectablePublisher` protocol which provides one of the following mechanisam for providing immediate data after request.
+- `connect()`
+- `autoConnect()`
+
+[List of Publisher](https://heckj.github.io/swiftui-notes/#coreconcepts-publishers)
+
+### 1 Dec
+SwiftUI publisher as property wrapper.
+- `@Published`
+- `@ObservedObject`
+
+#### Operators
+- Operates on data. Operations can be filtering, delaying, mapping etc.
+- They will compose the pipeline
+- accepts one/multiple closure from developer to define the business logic. At the same time it maintains the lifecycle of the publisher/subscriber.
+
+[List of Operators](https://heckj.github.io/swiftui-notes/#coreconcepts-operators)
+
 ### Clarifying terms
 Pipeline: Basically the chaining of [operators](#operators)
 
