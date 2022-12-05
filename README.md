@@ -93,8 +93,17 @@ SwiftUI publisher as property wrapper.
 
 [List of Operators](https://heckj.github.io/swiftui-notes/#coreconcepts-operators)
 
+### 5 Dec
+#### Subjects
+Subjects is a `Publisher` which defines a `send(_:)` method. So other callers, like imperative code, can inject values in the pipeline.
+- Used for injecting values in the data steam or in the pipeline, through `send(_:)`
+- Subject have fan out property so it can broadcast values among 
+  - multiple subscribers
+  - multiple pipelines
+
 ### Clarifying terms
-Pipeline: Basically the chaining of [operators](#operators)
+- Pipeline: Basically the chaining of [operators](#operators)
+- Imperative code
 
 ### Unknown terms
 - Steams of elements in `functional reactive programming`
