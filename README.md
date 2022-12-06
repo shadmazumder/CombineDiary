@@ -97,9 +97,20 @@ SwiftUI publisher as property wrapper.
 #### Subjects
 Subjects is a `Publisher` which defines a `send(_:)` method. So other callers, like imperative code, can inject values in the pipeline.
 - Used for injecting values in the data steam or in the pipeline, through `send(_:)`
-- Subject have fan out property so it can broadcast values among 
+- Subject has fan out property so it can broadcast values among 
   - multiple subscribers
   - multiple pipelines
+- Subjects does not pass the [demand](#26-nov) to Publisher unless any of its, Subject, subscriber request for it
+  - Also Subscriber are not provided any data unless they place a demand
+  - The subject will request for `unlimited` demand from the Publisher once it receives at least one request with demand from one of its subscribers
+
+Build-in Subject types in Combine
+- `currentValueSubject`
+  - requires an initial state
+  - store the state
+- `passThroughSubject`
+
+Both of the above subjects are used for **creating Publisher** for `ObservableObject`, a protocol supported by many of the **SwiftUI** declarative components.
 
 ### Clarifying terms
 - Pipeline: Basically the chaining of [operators](#operators)
