@@ -100,7 +100,7 @@ Subjects is a `Publisher` which defines a `send(_:)` method. So other callers, l
 - Subject has fan out property so it can broadcast values among 
   - multiple subscribers
   - multiple pipelines
-- Subjects does not pass the [demand](#26-nov) to Publisher unless any of its, Subject, subscriber request for it
+- Subjects does not pass the [demand](#26-nov) to Publisher unless any of Subject's subscriber request for it
   - Also Subscriber are not provided any data unless they place a demand
   - The subject will request for `unlimited` demand from the Publisher once it receives at least one request with demand from one of its subscribers
 
@@ -111,6 +111,28 @@ Build-in Subject types in Combine
 - `passThroughSubject`
 
 Both of the above subjects are used for **creating Publisher** for `ObservableObject`, a protocol supported by many of the **SwiftUI** declarative components.
+
+### 9 Dec
+#### Subscribers
+[Subscriber](https://heckj.github.io/swiftui-notes/#coreconcepts-subscribers) means
+- receiver of data
+- end of pipeline
+
+##### Types
+- Combine subscriber
+  - [Assign](https://developer.apple.com/documentation/combine/subscribers/assign)
+  - [Sink](https://developer.apple.com/documentation/combine/subscribers/sink)
+- SwiftUI
+  -  [onReceive](https://developer.apple.com/documentation/swiftui/group/onreceive(_:perform:)/)
+
+##### Canceling
+- Each subscriber confirms the [Cancellable protocol](https://developer.apple.com/documentation/combine/cancellable)
+  -  which allows the subscriber to cancel the data steam
+  -  canceling the data steam will terminate the pipeline
+  -  Any prior data steam before cancellation will be available
+- Once a subscriber is deallocatted the cancellation of the subscriber will be called implicitly
+- For later cleanup a [AnyCancellable](https://developer.apple.com/documentation/combine/anycancellable), a type-erased reference, can be stored instead of the subscription as we might need only `cancle()` to terminate the pipeline.
+
 
 ### Clarifying terms
 - Pipeline: Basically the chaining of [operators](#operators)
