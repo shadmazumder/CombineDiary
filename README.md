@@ -133,6 +133,20 @@ Both of the above subjects are used for **creating Publisher** for `ObservableOb
 - Once a subscriber is deallocatted the cancellation of the subscriber will be called implicitly
 - For later cleanup a [AnyCancellable](https://developer.apple.com/documentation/combine/anycancellable), a type-erased reference, can be stored instead of the subscription as we might need only `cancle()` to terminate the pipeline.
 
+### 9 Dec
+#### [Reasoning about pipeline](https://heckj.github.io/swiftui-notes/#reasoning-about-pipelines)
+Two common pattern of publisher occur most according to `Using Combine` book.
+- One shot publisher: returns single vaule and complete
+  - creates single response and then terminate normally
+- Continous publisher: returns many values over time
+  - always active
+  - provide response on ongoing events
+  - significantly longer life time
+  - not expected to fail or terminate
+
+To use combine it is suggested to think about the pipeline one of these and mix these two to reach the goal.
+
+
 
 ### Clarifying terms
 - Pipeline: Basically the chaining of [operators](#operators)
