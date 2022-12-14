@@ -146,6 +146,20 @@ Two common pattern of publisher occur most according to `Using Combine` book.
 
 To use combine it is suggested to think about the pipeline one of these and mix these two to reach the goal.
 
+### 10 Dec
+#### [continueing] Reasoning about pipeline
+Before creating a publisher or pipeline
+- Think about how it will work
+  - One shot
+  - Continious
+
+The above choice will inform
+- How to handle errors
+- Dealing with events which is caused by time manupulating operators such as `debounce`, `throttle`
+
+Data quantity.
+
+What type pair the pipeline will provide
 
 
 ### Clarifying terms
